@@ -1,5 +1,23 @@
 package util.extentreports.cucumber.adapter;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.GherkinKeyword;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.gherkin.model.Asterisk;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+import com.aventstack.extentreports.model.service.LogService;
+import com.aventstack.extentreports.model.service.TestService;
+import cucumber.api.HookTestStep;
+import cucumber.api.PickleStepTestStep;
+import cucumber.api.Result;
+import cucumber.api.TestCase;
+import cucumber.api.event.*;
+import cucumber.runtime.CucumberException;
+import gherkin.ast.*;
+import gherkin.pickles.*;
+import util.extentreports.service.ExtentService;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -12,35 +30,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.GherkinKeyword;
-import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.gherkin.model.Asterisk;
-import com.aventstack.extentreports.markuputils.MarkupHelper;
-import com.aventstack.extentreports.model.service.LogService;
-import com.aventstack.extentreports.model.service.TestService;
-
-import cucumber.api.HookTestStep;
-import cucumber.api.PickleStepTestStep;
-import cucumber.api.Result;
-import cucumber.api.TestCase;
-import cucumber.api.event.*;
-import cucumber.runtime.CucumberException;
-import gherkin.ast.DataTable;
-import gherkin.ast.DocString;
-import gherkin.ast.Examples;
-import gherkin.ast.Feature;
-import gherkin.ast.Node;
-import gherkin.ast.ScenarioDefinition;
-import gherkin.ast.ScenarioOutline;
-import gherkin.ast.Step;
-import gherkin.ast.TableCell;
-import gherkin.ast.TableRow;
-import gherkin.ast.Tag;
-import gherkin.pickles.*;
-import util.extentreports.service.ExtentService;
 
 /**
  * A port of Cucumber-JVM (MIT licensed) HtmlFormatter for Extent Framework 

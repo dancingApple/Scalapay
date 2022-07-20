@@ -1,21 +1,18 @@
 package util;
 
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.*;
+
 import java.time.Duration;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.function.Function;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 public abstract class SuperClass {
-    private final long shortWait = 1, longWait = 60;
+    private final long shortWait = 1, longWait = 30;
     public WebDriver driver = null;
 
     /**
@@ -457,22 +454,6 @@ public abstract class SuperClass {
             }
         }
         return true;
-    }
-
-    public String randomString() {
-        int leftLimit = 65; // numeral '0'
-        int rightLimit = 122; // letter 'z'
-        int targetStringLength = 4;
-        Random random = new Random();
-
-        String generatedString = random.ints(leftLimit, rightLimit + 1)
-                .filter(i -> (i <= 90 || i >= 97))
-                .limit(targetStringLength)
-                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-                .toString();
-
-        System.out.println(generatedString);
-        return generatedString;
     }
 
     public boolean elementExist(By locator) throws InterruptedException {

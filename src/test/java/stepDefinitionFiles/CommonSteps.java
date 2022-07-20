@@ -8,14 +8,13 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 
-import util.CommonMethods;
+import keywordFiles.LoginKeyword;
 
-public class Common_Steps extends CommonMethods {
-    private Login_Keywords loginKeyword;
+public class CommonSteps {
+    private LoginKeyword loginKeyword;
     private final ProjectDataClass dataProvider;
 
-
-    public Common_Steps(ProjectDataClass dataProvider) {
+    public CommonSteps(ProjectDataClass dataProvider) {
         this.dataProvider = dataProvider;
     }
 
@@ -37,16 +36,14 @@ public class Common_Steps extends CommonMethods {
         dataProvider.setTestEnvironment(testEnvironment);
     }
 
-    @Given("^(.+) user login to centric admin portal$")
-    public void something_user_login_to_centric_admin_portal(String userType) throws Throwable {
-        loginKeyword.loginToApplication(userType);
+    @Given("^(.+) user login to scalaPay test env web portal$")
+    public void user_login_to_scalapay_test_env_web_portal(String user) throws Throwable {
+        loginKeyword.loginToApplication(user);
     }
 
-
     @And("^The application is launched in \"([^\\\"]*)\"$")
-    public void launchApplication(String browserName)
-            throws Throwable {
+    public void launchApplication(String browserName) {
         dataProvider.launchApplication(browserName);
-        this.loginKeyword = new Login_Keywords(dataProvider);
+        this.loginKeyword = new LoginKeyword(dataProvider);
     }
 }

@@ -14,10 +14,10 @@
         <protocol>https</protocol>
 
         <!-- title of the document -->
-        <documentTitle>Centric Wealth Test Result</documentTitle>
+        <documentTitle>Scala Pay Test Result</documentTitle>
 
         <!-- report name - displayed at top-nav -->
-        <reportName>Centric Wealth Automation Report</reportName>
+        <reportName>Scala Pay Automation Report</reportName>
 
         <!-- location of charts in the test view -->
         <!-- top, bottom -->
