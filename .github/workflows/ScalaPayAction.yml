@@ -38,11 +38,19 @@ jobs:
           chmod +x ./scripts/InstallChrome.sh
                       ./scripts/InstallChrome.sh
 
-      - name: Run adhoc test
+      - name: Run test for commit
         if: github.event_name == 'push' || github.event_name == 'pull_request'
         run: >
           mvn install -f ./pom.xml
           -Denv.USER=remote
+        continue-on-error: true
+
+      - name: Run test for workflow dispatch
+        if: github.event_name == 'workflow_dispatch'
+        run: >
+          mvn install -f fnzOneAutomation/pom.xml
+          -Denv.USER=remote
+          -Dcucumber.options="--tags ~@${{ github.event.inputs.ignore }}"
         continue-on-error: true
 
       - name: Update resources on master
