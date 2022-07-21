@@ -71,12 +71,12 @@ jobs:
         if: github.event_name == 'push' || github.event_name == 'pull_request'
         uses: actions/upload-artifact@v2
         with:
-          name: AutomatedAdhocReports_${{ github.event.head_commit.message }}
+          name: AutomatedCommitReports_${{ github.event.head_commit.message }}
           path: ./target/cucumber-reports/advanced-reports
 
       - name: Getting reports for workflow dispatch
         if: github.event_name == 'workflow_dispatch'
         uses: actions/upload-artifact@v2
         with:
-          name: AutomatedRegressionReports_${{ github.event.inputs.version }}
-          path: fnzOneAutomation/target/cucumber-reports/advanced-reports
+          name: AutomatedTriggerReports_${{ github.event.inputs.version }}
+          path: ./target/cucumber-reports/advanced-reports
