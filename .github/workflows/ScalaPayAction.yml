@@ -41,7 +41,7 @@ jobs:
       - name: Run adhoc test
         if: github.event_name == 'push' || github.event_name == 'pull_request'
         run: >
-          mvn install -f fnzOneAutomation/pom.xml
+          mvn install -f ./pom.xml
           -Denv.USER=remote
         continue-on-error: true
 
