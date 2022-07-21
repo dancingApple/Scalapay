@@ -1,5 +1,5 @@
 # Scalapay
-This is a java maven project, using selenium as testing tool, junit as testing framework, cucumber as BDD framework, extent report as report framework
+This is a java maven project, using selenium as testing tool, junit as testing framework, cucumber as BDD framework, extent report as report framework, and github Action as CI/CD solution.
 
 ## 5 ways to run the tests
 - Running through the TestRunner for IDE
