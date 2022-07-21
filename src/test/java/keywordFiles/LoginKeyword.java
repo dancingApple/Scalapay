@@ -37,8 +37,10 @@ public class LoginKeyword {
         dataProvider.setUsername(props.getProperty(loginType + "." + "uid"));
         dataProvider.setPassword(props.getProperty(loginType + "." + "pw"));
 
+        dataProvider.getScreenshot("openBrowserLandedOnLoginPage");
         loginPageObject.inputUserName(dataProvider.getUsername());
         loginPageObject.inputPassword(dataProvider.getPassword());
+        dataProvider.getScreenshot("inputLoginDetails");
         loginPageObject.clickLoginBtn();
 
         dataProvider.getScreenshot("Login_Successful");

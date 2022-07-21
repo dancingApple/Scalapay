@@ -42,6 +42,6 @@ public class CheckDashboardKeyboard {
         assertEquals("The previous week return value is not correct", salesPageObject.getPreviousWeekReturn(),salesPageObject.getPreviousWeekReturn());
         assertEquals("The row number getting displayed is incorrect", salesPageObject.filterRowNoToDisplay(),salesPageObject.tableRowNo());
 
-        dataProvider.getScreenshot("checkSalesPage");
+        dataProvider.getScreenshot("finishCheckSalesPage");
     }
 }
